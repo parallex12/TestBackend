@@ -15,8 +15,8 @@ const AuthRoutes = async (app: FastifyInstance) => {
 
         if (email === mockUser.email && password === mockUser.password) {
             return reply.send({
-                token: 'mock-jwt-token',
-                userId: token,
+                token: token,
+                userId: mockUser.userId,
             });
         }
 
