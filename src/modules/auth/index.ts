@@ -2,6 +2,7 @@ import { FastifyInstance } from 'fastify';
 
 const AuthRoutes = async (app: FastifyInstance) => {
     app.post('/auth/login', async (request, reply) => {
+        if (!request.body) return reply.status(400).send({ error: 'Invalid request' });
         const { email, password } = request.body as { email: string; password: string };
 
         // Mock user data
